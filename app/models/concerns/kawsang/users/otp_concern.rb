@@ -35,7 +35,7 @@ module Kawsang
         end
 
         def send_otp_instructions_notification
-          Kawsang::Core::UserMailer.otp_instructions(self, otp_token).deliver_now
+          Kawsang::UserMailer.otp_instructions(self, otp_token).deliver_now
         end
 
         def otp_period_valid?
@@ -68,7 +68,7 @@ module Kawsang
 
         private
           def send_otp_instructions_notification_async
-            Kawsang::Core::UserMailerJob.perform_async(id)
+            Kawsang::UserMailerJob.perform_async(id)
           end
       end
     end

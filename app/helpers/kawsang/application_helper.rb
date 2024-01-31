@@ -1,4 +1,4 @@
-module Core
+module Kawsang
   module ApplicationHelper
   end
 end

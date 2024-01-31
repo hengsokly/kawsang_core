@@ -49,5 +49,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_064314) do
     t.index ["reset_password_token"], name: "index_kawsang_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_kawsang_users_on_unlock_token", unique: true
   end
-
 end

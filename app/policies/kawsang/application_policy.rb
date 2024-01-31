@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Kawsang
   class ApplicationPolicy
     attr_reader :user, :record
@@ -47,8 +48,7 @@ module Kawsang
       end
 
       private
-
-      attr_reader :user, :scope
+        attr_reader :user, :scope
     end
   end
 end
