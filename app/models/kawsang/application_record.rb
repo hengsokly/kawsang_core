@@ -1,4 +1,4 @@
-module Kawsange
+module Kawsang
   class ApplicationRecord < ActiveRecord::Base
     self.abstract_class = true
   end

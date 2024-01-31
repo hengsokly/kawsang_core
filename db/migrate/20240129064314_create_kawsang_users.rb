@@ -1,6 +1,6 @@
 class CreateKawsangUsers < ActiveRecord::Migration[7.1]
   def change
-    create_table :kawsang_users do |t|
+    create_table :kawsang_users, id: :uuid do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -30,10 +30,15 @@ class CreateKawsangUsers < ActiveRecord::Migration[7.1]
       t.string   :unlock_token # Only if unlock strategy is :email or :both
       t.datetime :locked_at
 
+      # Other columns
       t.integer   :role
       t.boolean   :actived, default: true
       t.datetime  :deleted_at
       t.string    :locale
+      t.integer   :sign_in_type, default: 1
+      t.string    :otp_token
+      t.datetime  :otp_sent_at
+      t.string    :tg_username
 
       t.timestamps
     end
