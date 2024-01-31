@@ -13,9 +13,7 @@ module Kawsang
       isolate_namespace Kawsang
       engine_name :kawsang
 
-      config.autoload_paths += %W(
-        #{config.root}/lib
-      )
+      config.active_job.queue_adapter = :sidekiq
     end
   end
 end
