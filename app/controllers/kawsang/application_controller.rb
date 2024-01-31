@@ -1,6 +1,4 @@
-module kawsang
-  module Core
-    class ApplicationController < ActionController::Base
-    end
+module Kawsang
+  class ApplicationController < ActionController::Base
   end
 end

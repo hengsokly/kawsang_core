@@ -23,22 +23,25 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency "rails", ">= 7.1.3"
-  spec.add_dependency "devise", "~> 4.8.1"
+
+  # Soft delete
   spec.add_dependency "paranoia", "~> 2.6.3"
-  # spec.add_dependency "date_validator", "~> 0.10.0"
-  # spec.add_dependency "pumi", "~> 0.10.0"
-  # spec.add_dependency "awesome_nested_set", "~> 3.2.1"
-  # spec.add_dependency "doorkeeper", "~> 5.5.2"
-  # spec.add_dependency "validate_url", "~> 1.0.13"
-  # spec.add_dependency "carrierwave", "~> 2.1"
-  # spec.add_dependency "telegram-bot", "~> 0.15.3"
+
+  # Background process
   spec.add_dependency "sidekiq", "~> 7.2.0"
+
+  # Authentication
+  spec.add_dependency "devise", "~> 4.9.3"
+
+  # Omniauth
   spec.add_dependency "omniauth-rails_csrf_protection", "~> 1.0.1"
   spec.add_dependency "omniauth-google-oauth2", "~> 1.0.1"
   spec.add_dependency "omniauth-facebook", "~> 9.0.0"
   spec.add_dependency "omniauth-telegram", "~> 0.2.1"
+
+  # Authorization
   spec.add_dependency "pundit", "~> 2.2.0"
 
-  # spec.add_dependency "httparty", "~> 0.19.0"
-  # spec.add_dependency "roo", "~> 2.8.3"
+  # Clean attribute space
+  spec.add_dependency "strip_attributes", "~> 1.13.0"
 end
