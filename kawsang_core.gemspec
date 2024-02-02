@@ -42,6 +42,9 @@ Gem::Specification.new do |spec|
   # Authorization
   spec.add_dependency "pundit", "~> 2.2.0"
 
+  # oAuth2 provider
+  spec.add_dependency "doorkeeper", "~> 5.6.8"
+
   # Clean attribute space
   spec.add_dependency "strip_attributes", "~> 1.13.0"
 end

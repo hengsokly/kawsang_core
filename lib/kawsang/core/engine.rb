@@ -6,6 +6,7 @@ require "omniauth-google-oauth2"
 require "omniauth-facebook"
 require "omniauth/telegram"
 require "pundit"
+require "doorkeeper"
 
 module Kawsang
   module Core

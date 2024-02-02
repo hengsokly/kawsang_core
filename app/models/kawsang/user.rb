@@ -35,6 +35,7 @@ module Kawsang
   class User < ApplicationRecord
     include Kawsang::Users::Filter
     include Kawsang::Users::OtpConcern
+    include Kawsang::Users::OauthProvider
 
     acts_as_paranoid
 
