@@ -31,16 +31,15 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
-require "rails_helper"
+FactoryBot.define do
+  factory :user, class: "Kawsang::User" do
+    email         { FFaker::Internet.email }
+    password      { FFaker::Internet.password }
+    role          { "primary_admin" }
+    confirmed_at  { DateTime.now }
 
-module Kawsang
-  RSpec.describe User, type: :model do
-    describe "#display_name" do
-      let(:user) { build(:user, email: "sokly@kawsang.com") }
-
-      it "renders first email part with uppercase" do
-        expect(user.display_name).to eq("SOKLY")
-      end
+    trait :admin do
+      role { "admin" }
     end
   end
 end

@@ -47,6 +47,4 @@ Gem::Specification.new do |spec|
 
   # Clean attribute space
   spec.add_dependency "strip_attributes", "~> 1.13.0"
-
-  spec.add_development_dependency "rspec-rails"
 end

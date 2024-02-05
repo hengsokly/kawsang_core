@@ -12,3 +12,4 @@
 app/.DS_Store
 config/.DS_Store
 config/locales/.DS_Store
+.byebug_history
