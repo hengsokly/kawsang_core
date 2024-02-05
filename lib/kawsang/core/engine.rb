@@ -7,6 +7,7 @@ require "omniauth-facebook"
 require "omniauth/telegram"
 require "pundit"
 require "doorkeeper"
+require "sidekiq"
 
 module Kawsang
   module Core

@@ -296,6 +296,11 @@ GEM
       rspec-expectations (~> 3.12)
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
+    rspec-sidekiq (4.1.0)
+      rspec-core (~> 3.0)
+      rspec-expectations (~> 3.0)
+      rspec-mocks (~> 3.0)
+      sidekiq (>= 5, < 8)
     rspec-support (3.12.1)
     rubocop (1.60.2)
       json (~> 2.3)
@@ -384,6 +389,7 @@ DEPENDENCIES
   pg
   puma
   rspec-rails
+  rspec-sidekiq
   rubocop-performance
   rubocop-rails
   selenium-webdriver

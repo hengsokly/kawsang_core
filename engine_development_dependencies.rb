@@ -30,4 +30,5 @@ group :test do
   gem "webdrivers"
   gem "shoulda-matchers"
   gem "timecop"
+  gem "rspec-sidekiq"
 end

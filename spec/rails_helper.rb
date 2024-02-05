@@ -3,11 +3,12 @@ require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
 
 require "factory_bot_rails"
-require "support/factory_bot"
-require "shoulda/matchers"
 require "database_cleaner/active_record"
 require "ffaker"
 require "byebug"
+require "shoulda/matchers"
+require "sidekiq/testing"
+require "support/factory_bot"
 
 require_relative "./dummy/config/environment"
 # Prevent database truncation if the environment is production
@@ -72,4 +73,38 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Configuration for database cleaner
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+end
+
+# Configuration for shoulda matcher
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
+# Configuration for rspec-sidekiq
+RSpec::Sidekiq.configure do |config|
+  # Clears all job queues before each example
+  config.clear_all_enqueued_jobs = true # default => true
+
+  # Whether to use terminal colours when outputting messages
+  config.enable_terminal_colours = true # default => true
+
+  # Warn when jobs are not enqueued to Redis but to a job array
+  config.warn_when_jobs_not_processed_by_sidekiq = true # default => true
 end
