@@ -19,9 +19,8 @@ module Kawsang
 
         # https://rubyyagi.com/rails-api-authentication-devise-doorkeeper/
         # the authenticate method from devise documentation
-        def self.authenticate(email, password)
-          user = User.find_for_authentication(email:)
-          user&.valid_password?(password) ? user : nil
+        def self.authenticate(email, api_key)
+          User.find_by(email:, api_key:)
         end
       end
     end
